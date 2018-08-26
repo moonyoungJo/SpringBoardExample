@@ -15,15 +15,6 @@
 				<input type="hidden" name="page" value="">
 				<input type="hidden" name="perPageNum" value="${pageMaker.cri.perPageNum }">
 			</form>
-		
-			<div class="box">	
-				<div class="box-header with-border">
-					<h3 class="box-title">Board List</h3>
-				</div>
-				<div class='box-body'>
-					<button id='newBtn'>New Board</button>
-				</div>
-			</div>
 			
 			<div class="box">
 				<div class="box-header with-border">
