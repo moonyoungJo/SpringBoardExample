@@ -1,5 +1,8 @@
 package org.zerock.domain;
 
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
 //page info calculator
 public class PageMaker {
 	private int totalCount;
@@ -28,6 +31,14 @@ public class PageMaker {
 		}
 		prev = startPage==1?false:true;
 		next = endPage*cri.getPerPageNum()>=totalCount?false:true;
+	}
+	//make uri query with criteria
+	public String makeQuery(int page){
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum",  cri.getPerPageNum())
+				.build();
+		return uriComponents.toUriString();
 	}
 	public int getStartPage() {
 		return startPage;

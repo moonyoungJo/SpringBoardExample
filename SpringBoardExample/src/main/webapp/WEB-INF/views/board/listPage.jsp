@@ -9,8 +9,14 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
+			
+			<!-- for link page -->
+			<form id="jobForm">
+				<input type="hidden" name="page" value="">
+				<input type="hidden" name="perPageNum" value="${pageMaker.cri.perPageNum }">
+			</form>
 		
-			<div class='box'>	
+			<div class="box">	
 				<div class="box-header with-border">
 					<h3 class="box-title">Board List</h3>
 				</div>
@@ -38,7 +44,7 @@
 						<c:forEach items="${list }" var="boardVO">
 							<tr>
 								<td>${boardVO.bno }</td>
-								<td><a href="">${boardVO.title }</a>
+								<td><a href="/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&bno=${boardVO.bno}">${boardVO.title }</a>
 								<td>${boardVO.writer }</td>
 								<td><fmt:formatDate pattern="yyyy-MMM-dd HH:mm" value="${boardVO.regdate }" /></td>
 								<td><span class="badge bg-red">${boardVO.viewcnt }</span></td>
@@ -78,6 +84,7 @@
 </form>
 
 <script>
+	// readPage link
 	$(".pagination li a").on("click", function(event){
 		event.preventDefault();
 		
